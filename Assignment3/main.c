@@ -61,6 +61,7 @@ int main(){
 	            printf("\n\nWhat would you like to do %s?\n", playerstruct[i].name);
 	            printf("Enter 1 to move.\n");
 	            printf("Enter 2 to attack.\n");
+	            printf("Enter 3 to quit.\n");
 	            scanf("%d", &user_input);
 
 	            if(user_input == 1)
@@ -83,7 +84,8 @@ int main(){
 	                	perform_near_attack(playerstruct,playerstruct[i].row,playerstruct[i].column,boardSize, i,no_players);
 	                }
 
-	                else if(input==2){
+	                else if(input==2)
+	                {
 	                		//checking if current player has the required conditions in order to perform a magic attack
 	                		if(((playerstruct[i].smartness+playerstruct[i].magic_skills)>150))
 	                		{
@@ -103,6 +105,14 @@ int main(){
 
 	                		}
 	                }
+	                else if (input==3)
+	                {
+	                	implement_distant_attack (playerstruct,boardSize,i,no_players);
+	                }
+	            }
+	            else if(input==3)
+	            {
+	            	//remove players from game
 	            }
 	            //print new board and capabilities
 	            print_board (boardSize,no_players,board);

@@ -895,19 +895,83 @@ void perform_near_attack(struct Players playerstruct[],int current_row,int curre
 
 
 }
-*/
-/*void implement_distant_attack (struct Players playerstruct[],int boardSize,int current_player, int no_players)
+/*/
+void implement_distant_attack (struct Players playerstruct[],int boardSize,int attacker, int no_players)
 {
 	int i,row,column;
+	//to hold the distance the player is from current player
+	int distance;
+	//to hold the players that meet the conditions
+	int available_to_attack[6];
+	int attack;
+	int found_near=0;
 
-	row = playerstruct[current_player].row;
-	column = playerstruct[current_player].column;
+	row = playerstruct[attacker].row;
+	column = playerstruct[attacker].column;
+
+
 
 	for(i=0;i<no_players;i++)
 	{
-		if(board[row][column].player_slot[i] != current_player)
+		if(board[row][column].player_slot[i] != attacker)
+		{
+			distance=abs(playerstruct[i].row)+abs(playerstruct[i].column);
+			if (distance>1 && distance<5)
+			{
+				available_to_attack[i]=i+1;
+			}
+		}
+
 	}
-}*/
+for(int j=0;j<no_players;j++)
+	{
+		if(available_to_attack[j]>=1)
+		{
+			//set found near to 1 to indicate that user is able to perform near attack
+			found_near=1;
+		}
+	}
+
+	//if the user is able to perform attack
+	if(found_near==1)
+	{
+		for(int k=0;k<no_players;k++)
+		{
+			printf("Please enter %d to attack player %d\n\n",available_to_attack[i],available_to_attack[i]);
+		}
+	}
+	scanf("%d",&attack);
+	//calling to change capabilities based on which player they decide to attack
+				if(attack==1)
+				{
+					distant_attack ( playerstruct, attacker,attack);
+				}
+				else if(attack==2)
+				{
+					distant_attack ( playerstruct, attacker,attack);
+				}
+				else if(attack==3)
+				{
+					distant_attack ( playerstruct, attacker,attack);
+				}
+				else if(attack==4)
+				{
+					distant_attack ( playerstruct, attacker,attack);
+				}
+				else if(attack==5)
+				{
+					distant_attack ( playerstruct, attacker,attack);
+				}
+				else if(attack==6)
+				{
+					distant_attack ( playerstruct, attacker,attack);
+				}
+
+
+
+
+
+}
 
 void near_attack (struct Players playerstruct[], int attacker, int defender)
 {

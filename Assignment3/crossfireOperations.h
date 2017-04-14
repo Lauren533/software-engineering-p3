@@ -74,10 +74,10 @@ void can_move_4 (struct slot **board,int boardSize,int current_player, int curre
 void changing_caps(struct Players * pplayer, struct slot ** board, int current_player);
 void set_slot_types(struct slot **board, int boardSize);
 void current_player_capabilities(int no_players, struct Players * playerstruct);
-void near_attack (struct Players players[], int attacker, int defender);
-void distant_attack (struct Players players[], int attacker, int defender);
+void near_attack (struct Players playerstruct[], int attacker, int defender);
+void distant_attack (struct Players playerstruct[], int attacker, int defender);
 void magic_attack (struct Players playerstruct[], int attacker, int defender);
 void implement_near_attack (struct Players playerstruct[],int boardSize,int current_player,int no_players);
-void implement_distant_attack (struct Players playerstruct[],int boardSize,int current_player, int no_players);
+void implement_distant_attack (struct Players playerstruct[],int boardSize,int attacker, int no_players);
 void perform_near_attack(struct Players playerstruct[],int current_row,int current_column, int boardSize, int current_player,int no_players);
 
